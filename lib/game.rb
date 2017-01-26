@@ -21,6 +21,7 @@ class Game
   def take_turn(field)
     raise 'You cannot begin the game until you have two players!' if !two_players?
     token = current_player.token
+    raise 'This field has already been taken!' if self.board.chosen_field_taken?(field)
     self.board.claim_field(field, token)
     switch_player
   end

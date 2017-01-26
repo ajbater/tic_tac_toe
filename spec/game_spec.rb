@@ -65,8 +65,11 @@ describe Game do
     before do
       game.add_player(player1)
       game.add_player(player2)
-      allow(board).to receive(:claim_field)
       allow(player1).to receive(:token)
+      allow(player2).to receive(:token)
+      allow(game.current_player).to receive(:token).and_return(:token)
+      allow(board).to receive(:claim_field).with(:A1, :token)
+      allow(board).to receive(:chosen_field_taken?).with(:A1)
     end
 
     it 'knows that player 1 goes first' do
@@ -83,13 +86,10 @@ describe Game do
     end
 
     it 'knows what the current players token is' do
-      allow(game.current_player).to receive(:token).and_return(:token)
       expect(game.current_player.token).to eq :token
     end
 
     it 'can claim a the chosen field when a turn is taken' do
-      allow(board).to receive(:claim_field).with(:A1)
-      allow(game.current_player).to receive(:token).and_return(:token)
       expect(board).to receive(:claim_field).with(:A1, :token)
       game.take_turn(:A1)
     end
@@ -97,6 +97,11 @@ describe Game do
     it 'after a turn has been taken, it becomes the other players turn' do
       game.take_turn(:A1)
       expect(game.current_player).to eq player2
+    end
+
+    xit 'once a field is taken, it cannot be taken again' do
+      game.take_turn(:A1)
+      expect{ game.take_turn(:A1) }.to raise_error('This field has already been taken!')
     end
   end
 end
