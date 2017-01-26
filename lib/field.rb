@@ -7,4 +7,8 @@ class Field
     @token = nil
   end
 
+  def taken?
+    @taken = true
+  end
+
 end

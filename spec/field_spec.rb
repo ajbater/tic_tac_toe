@@ -10,4 +10,9 @@ describe Field do
   it 'knows which token it has been claimed by, this will be nil by default' do
     expect(field.token).to eq nil
   end
+
+  it 'the status of taken can be changed to true' do
+    field.taken?
+    expect(field.taken).to eq true
+  end
 end
