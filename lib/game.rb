@@ -13,4 +13,8 @@ class Game
     self.player1 ? self.player2 = player : self.player1 = player
   end
 
+  def two_players?
+    true
+  end
+
 end
