@@ -93,5 +93,10 @@ describe Game do
       expect(board).to receive(:claim_field).with(:A1, :token)
       game.take_turn(:A1)
     end
+
+    it 'after a turn has been taken, it becomes the other players turn' do
+      game.take_turn(:A1)
+      expect(game.current_player).to eq player2
+    end
   end
 end
