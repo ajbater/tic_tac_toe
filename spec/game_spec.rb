@@ -18,4 +18,11 @@ describe Game do
       expect(game.player2).to eq nil
     end
   end
+
+  context 'when adding players' do
+    it 'can add player 1' do
+      game.add_player(player1)
+      expect(game.player1).to eq player1
+    end
+  end
 end
