@@ -10,11 +10,7 @@ class Game
   end
 
   def add_player(player)
-    if self.player1
-      self.player2 = player
-    else
-      self.player1 = player
-    end
+    self.player1 ? self.player2 = player : self.player1 = player
   end
 
 end
