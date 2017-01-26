@@ -11,8 +11,8 @@ class Board
     end
   end
 
-  def claim_field(field)
-    
+  def claim_field(field, token)
+    chosen_field
   end
 
 end

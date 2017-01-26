@@ -20,7 +20,8 @@ class Game
 
   def take_turn(field)
     raise 'You cannot begin the game until you have two players!' if !two_players?
-    self.board.claim_field(field)
+    token = current_player.token
+    self.board.claim_field(field, token)
   end
 
   def turn

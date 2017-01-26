@@ -81,6 +81,11 @@ describe Game do
       expect(game.current_player).to eq player1
     end
 
+    it 'knows what the current players token is' do
+      allow(game.current_player).to receive(:token).and_return(:token)
+      expect(game.current_player.token).to eq :token
+    end
+
     # it 'can claim a the chosen field when a turn is taken' do
     #   game.take_turn(:A1)
     #   expect(board).to receive(:claim_field).with(:A1)

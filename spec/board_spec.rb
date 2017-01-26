@@ -2,6 +2,7 @@ require 'board'
 
 describe Board do
   let(:field) { double :field }
+  let(:token) { double :token }
   subject(:board) { described_class.new(field) }
 
   before do
@@ -17,5 +18,10 @@ describe Board do
     expect(board.grid[:A1].taken).to eq false
   end
 
-  it { is_expected.to respond_to(:claim_field).with(1).argument }
+  it { is_expected.to respond_to(:claim_field).with(2).arguments }
+
+  it 'can change the taken status of the field to true' do
+    board.claim_field(field, token)
+    expect(field).to receive(:player_claims_field).with(token)
+  end
 end
