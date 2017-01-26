@@ -12,7 +12,8 @@ class Board
   end
 
   def claim_field(field, token)
-    chosen_field
+    chosen_field = self.grid[field]
+    chosen_field.player_claims_field(token)
   end
 
 end

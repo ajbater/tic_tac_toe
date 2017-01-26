@@ -21,7 +21,8 @@ describe Board do
   it { is_expected.to respond_to(:claim_field).with(2).arguments }
 
   it 'can change the taken status of the field to true' do
-    board.claim_field(field, token)
+    allow(field).to receive(:player_claims_field).with(token)
     expect(field).to receive(:player_claims_field).with(token)
+    board.claim_field(:A1, token)
   end
 end
