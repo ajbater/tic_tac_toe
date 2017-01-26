@@ -22,6 +22,7 @@ class Game
     raise 'You cannot begin the game until you have two players!' if !two_players?
     token = current_player.token
     self.board.claim_field(field, token)
+    switch_player
   end
 
   def turn

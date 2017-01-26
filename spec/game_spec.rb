@@ -66,6 +66,7 @@ describe Game do
       game.add_player(player1)
       game.add_player(player2)
       allow(board).to receive(:claim_field)
+      allow(player1).to receive(:token)
     end
 
     it 'knows that player 1 goes first' do
@@ -86,9 +87,11 @@ describe Game do
       expect(game.current_player.token).to eq :token
     end
 
-    # it 'can claim a the chosen field when a turn is taken' do
-    #   game.take_turn(:A1)
-    #   expect(board).to receive(:claim_field).with(:A1)
-    # end
+    it 'can claim a the chosen field when a turn is taken' do
+      allow(board).to receive(:claim_field).with(:A1)
+      allow(game.current_player).to receive(:token).and_return(:token)
+      expect(board).to receive(:claim_field).with(:A1, :token)
+      game.take_turn(:A1)
+    end
   end
 end
