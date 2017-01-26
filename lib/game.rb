@@ -19,7 +19,7 @@ class Game
   end
 
   def take_turn
-    raise 'You cannot begin the game until you have two players!'
+    raise 'You cannot begin the game until you have two players!' if !two_players?
   end
 
 end
