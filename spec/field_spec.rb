@@ -15,4 +15,9 @@ describe Field do
     field.taken?
     expect(field.taken).to eq true
   end
+
+  it 'the status of token can be assigned a value' do
+    field.assign_token('token')
+    expect(field.token).to eq 'token'
+  end
 end

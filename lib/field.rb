@@ -1,6 +1,6 @@
 class Field
 
-  attr_reader :taken, :token
+  attr_accessor :taken, :token
 
   def initialize
     @taken = false
@@ -8,7 +8,11 @@ class Field
   end
 
   def taken?
-    @taken = true
+    self.taken = true
+  end
+
+  def assign_token(token)
+    self.token = token
   end
 
 end
