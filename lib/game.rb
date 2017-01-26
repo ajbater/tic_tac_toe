@@ -14,7 +14,7 @@ class Game
   end
 
   def two_players?
-    true
+    !self.player1.nil? && !self.player2.nil?
   end
 
 end

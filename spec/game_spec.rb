@@ -37,5 +37,10 @@ describe Game do
       game.add_player(player2)
       expect(game.two_players?).to eq true
     end
+
+    it 'knows when it does not have two players' do
+      game.add_player(player1)
+      expect(game.two_players?).to eq false
+    end
   end
 end
