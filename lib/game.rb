@@ -10,6 +10,7 @@ class Game
   end
 
   def add_player(player)
+    raise 'You already have two players - your game is ready to begin!' if two_players?
     self.player1 ? self.player2 = player : self.player1 = player
   end
 

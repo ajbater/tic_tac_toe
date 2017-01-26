@@ -42,5 +42,11 @@ describe Game do
       game.add_player(player1)
       expect(game.two_players?).to eq false
     end
+
+    it 'cannot add more than two players' do
+      game.add_player(player1)
+      game.add_player(player2)
+      expect{ game.add_player('another_player') }.to raise_error('You already have two players - your game is ready to begin!')
+    end
   end
 end
