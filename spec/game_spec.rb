@@ -70,5 +70,10 @@ describe Game do
     it 'knows that player 1 goes first' do
       expect(game.turn).to eq player1
     end
+
+    it 'can switch players so player two can take their turn' do
+      game.switch_player
+      expect(game.turn).to eq player2
+    end
   end
 end
