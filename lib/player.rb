@@ -8,7 +8,7 @@ class Player
   end
 
   def take_turn
-
+    
   end
 
 end
