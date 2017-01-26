@@ -62,5 +62,13 @@ describe Game do
   end
 
   context 'when game is ready to play' do
+    before do
+      game.add_player(player1)
+      game.add_player(player2)
+    end
+
+    it 'knows that player 1 goes first' do
+      expect(game.turn).to eq player1
+    end
   end
 end

@@ -22,4 +22,8 @@ class Game
     raise 'You cannot begin the game until you have two players!' if !two_players?
   end
 
+  def turn
+    player1
+  end
+
 end
