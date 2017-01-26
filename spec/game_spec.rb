@@ -9,12 +9,13 @@ describe Game do
     expect(game.board).to eq board
   end
 
-  it 'has no players when a new game is created' do
-    expect(game.player1).to eq nil
-  end
+  context 'has no players when a new game is created' do
+    it 'has no player 1' do
+      expect(game.player1).to eq nil
+    end
 
-  # it 'can take players' do
-  #   game.add_player(player1)
-  #   expect(game.player1).to eq player1
-  # end
+    it 'has no player 2' do
+      expect(game.player2).to eq nil
+    end
+  end
 end
