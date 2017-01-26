@@ -12,7 +12,7 @@ class Board
   end
 
   def claim_field(field)
-
+    
   end
 
 end

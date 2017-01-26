@@ -31,4 +31,8 @@ class Game
     turn == player1 ? self.turn = player2 : self.turn = player1
   end
 
+  def current_player
+    self.turn
+  end
+
 end

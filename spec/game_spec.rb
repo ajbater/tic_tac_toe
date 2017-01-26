@@ -77,6 +77,10 @@ describe Game do
       expect(game.turn).to eq player2
     end
 
+    it 'knows the who the current player is' do
+      expect(game.current_player).to eq player1
+    end
+
     # it 'can claim a the chosen field when a turn is taken' do
     #   game.take_turn(:A1)
     #   expect(board).to receive(:claim_field).with(:A1)
