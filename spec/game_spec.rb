@@ -51,20 +51,21 @@ describe Game do
   end
   context 'starting the game' do
     it 'will not allow a turn to be taken when there are not two players' do
-      expect { game.take_turn }.to raise_error('You cannot begin the game until you have two players!')
+      expect { game.take_turn(:A1) }.to raise_error('You cannot begin the game until you have two players!')
     end
 
     it 'will allow a turn to be take when there are two players' do
       game.add_player(player1)
       game.add_player(player2)
-      expect { game.take_turn }.not_to raise_error('You cannot begin the game until you have two players!')
+      expect { game.take_turn(:A1) }.not_to raise_error('You cannot begin the game until you have two players!')
     end
   end
 
-  context 'when game is ready to play' do
+  context 'when playing a game' do
     before do
       game.add_player(player1)
       game.add_player(player2)
+      allow(board).to receive(:claim_field)
     end
 
     it 'knows that player 1 goes first' do
@@ -75,5 +76,10 @@ describe Game do
       game.switch_player
       expect(game.turn).to eq player2
     end
+
+    # it 'can claim a the chosen field when a turn is taken' do
+    #   game.take_turn(:A1)
+    #   expect(board).to receive(:claim_field).with(:A1)
+    # end
   end
 end

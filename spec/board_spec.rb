@@ -16,4 +16,6 @@ describe Board do
   it 'should be able to find fields when given their coordinates' do
     expect(board.grid[:A1].taken).to eq false
   end
+
+  it { is_expected.to respond_to(:claim_field).with(1).argument }
 end

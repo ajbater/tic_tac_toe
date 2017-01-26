@@ -18,8 +18,9 @@ class Game
     !self.player1.nil? && !self.player2.nil?
   end
 
-  def take_turn
+  def take_turn(field)
     raise 'You cannot begin the game until you have two players!' if !two_players?
+    self.board.claim_field(field)
   end
 
   def turn

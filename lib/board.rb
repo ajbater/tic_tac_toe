@@ -11,4 +11,8 @@ class Board
     end
   end
 
+  def claim_field(field)
+
+  end
+
 end
