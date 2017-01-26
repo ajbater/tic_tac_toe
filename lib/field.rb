@@ -1,11 +1,20 @@
 class Field
 
-  attr_accessor :taken, :token
+  attr_reader :taken, :token
 
   def initialize
     @taken = false
     @token = nil
   end
+
+  def player_claims_field(token)
+    taken?
+    assign_token(token)
+  end
+
+  private
+
+  attr_writer :taken, :token
 
   def taken?
     self.taken = true

@@ -12,12 +12,12 @@ describe Field do
   end
 
   it 'the status of taken can be changed to true' do
-    field.taken?
+    field.player_claims_field('token')
     expect(field.taken).to eq true
   end
 
   it 'the status of token can be assigned a value' do
-    field.assign_token('token')
+    field.player_claims_field('token')
     expect(field.token).to eq 'token'
   end
 end
