@@ -6,9 +6,14 @@ describe Board do
 
   before do
     allow(field).to receive(:new).and_return field
+    allow(field).to receive(:taken).and_return false
   end
 
   it 'creates a new grid with 9 fields upon instantiation' do
     expect(board.grid.count).to eq 9
+  end
+
+  it 'should be able to find fields when given their coordinates' do
+    expect(board.grid[:A1].taken).to eq false
   end
 end
