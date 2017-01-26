@@ -1,9 +1,9 @@
 class Field
 
-  attr_reader :claimed, :token
+  attr_reader :taken, :token
 
   def initialize
-    @claimed = false
+    @taken = false
     @token = nil
   end
 
