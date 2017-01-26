@@ -25,4 +25,10 @@ describe Board do
     expect(field).to receive(:player_claims_field).with(token)
     board.claim_field(:A1, token)
   end
+
+  xit 'will not allow the same field to be taken more than once' do
+    allow(field).to receive(:player_claims_field).with(token)
+    board.claim_field(:A1, token)
+    expect(board.chosen_field_taken?(:A1)).to eq true
+  end
 end
