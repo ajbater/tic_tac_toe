@@ -7,4 +7,8 @@ class Player
     @token = token.to_sym
   end
 
+  def take_turn
+
+  end
+
 end

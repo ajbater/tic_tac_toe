@@ -10,4 +10,6 @@ describe Player do
   it 'player has a token' do
     expect(player.token).to eq :x
   end
+
+  it { is_expected.to respond_to(:take_turn) }
 end
