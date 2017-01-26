@@ -48,5 +48,12 @@ describe Game do
       game.add_player(player2)
       expect{ game.add_player('another_player') }.to raise_error('You already have two players - your game is ready to begin!')
     end
+
+    it 'will not allow a turn to be taken when there are not two players' do
+      expect { game.take_turn }.to raise_error('You cannot begin the game until you have two players!')
+    end
+  end
+
+  context 'when game is ready to play' do
   end
 end

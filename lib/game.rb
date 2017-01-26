@@ -18,4 +18,8 @@ class Game
     !self.player1.nil? && !self.player2.nil?
   end
 
+  def take_turn
+    raise 'You cannot begin the game until you have two players!'
+  end
+
 end
