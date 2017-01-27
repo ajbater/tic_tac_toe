@@ -54,7 +54,7 @@ describe Game do
       expect { game.take_turn(:A1) }.to raise_error('You cannot begin the game until you have two players!')
     end
 
-    it 'will allow a turn to be take when there are two players' do
+    it 'will allow a turn to be taken when there are two players' do
       game.add_player(player1)
       game.add_player(player2)
       expect { game.take_turn(:A1) }.not_to raise_error('You cannot begin the game until you have two players!')
@@ -93,8 +93,8 @@ describe Game do
       expect(game.current_player).to eq player2
     end
 
-    xit 'once a field is taken, it cannot be taken again' do
-      game.take_turn(:A1)
+    it 'once a field is taken, it cannot be taken again' do
+      allow(board).to receive(:chosen_field_taken?).with(:A1).and_return true
       expect{ game.take_turn(:A1) }.to raise_error('This field has already been taken!')
     end
   end
