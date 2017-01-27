@@ -42,4 +42,8 @@ class Game
     self.board.all_fields_taken?
   end
 
+  def game_over_no_winner?
+    all_fields_taken?
+  end
+
 end

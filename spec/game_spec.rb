@@ -109,5 +109,10 @@ describe Game do
       allow(board).to receive(:all_fields_taken?).and_return true
       expect(game.all_fields_taken?).to eq true
     end
+
+    it 'knows when a game is over and no one has won' do
+      allow(board).to receive(:all_fields_taken?).and_return true
+      expect(game.game_over_no_winner?).to eq true
+    end
   end
 end
