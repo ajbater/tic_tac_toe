@@ -38,4 +38,8 @@ class Game
     self.turn
   end
 
+  def all_fields_taken?
+    self.board.all_fields_taken?
+  end
+
 end

@@ -98,4 +98,11 @@ describe Game do
       expect{ game.take_turn(:A1) }.to raise_error('This field has already been taken!')
     end
   end
+
+  context 'finishing a game' do
+    it 'knows when there are still fields left' do
+      allow(board).to receive(:all_fields_taken?).and_return false
+      expect(game.all_fields_taken?).to eq false
+    end
+  end
 end
