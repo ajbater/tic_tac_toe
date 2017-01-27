@@ -9,6 +9,7 @@ describe Board do
   before do
     allow(field).to receive(:new).and_return field
     allow(field).to receive(:taken).and_return false
+    allow(field).to receive(:player_claims_field).with(player1)
   end
 
   it 'creates a new grid with 9 fields upon instantiation' do
@@ -16,7 +17,8 @@ describe Board do
   end
 
   it 'should be able to find fields when given their coordinates' do
-    expect(board.grid[:A1].taken).to eq false
+    allow(field).to receive(:taken).and_return true
+    expect(board.grid[:A1].taken).to eq true
   end
 
   it { is_expected.to respond_to(:claim_field).with(2).arguments }
@@ -28,12 +30,15 @@ describe Board do
   end
 
   it 'will not allow the same field to be taken more than once' do
-    allow(field).to receive(:player_claims_field).with(player1)
     expect(field).to receive(:player_claims_field).with(player1)
     board.claim_field(:A1, player1)
   end
 
   it 'knows when there are still fields remaining' do
     expect(board.all_fields_taken?).to eq false
+  end
+
+  xit 'knows when all fields have been taken' do
+    expect(board.all_fields_taken?).to eq true
   end
 end

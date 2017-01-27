@@ -22,7 +22,9 @@ class Board
   end
 
   def all_fields_taken?
-    false
+    fields = self.grid.values
+    taken_fields = fields.select { |field| field.taken }
+    taken_fields.length == 9
   end
 
 end
