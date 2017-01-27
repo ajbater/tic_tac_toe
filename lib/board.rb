@@ -21,4 +21,8 @@ class Board
     chosen_field.taken
   end
 
+  def all_fields_taken?
+    false
+  end
+
 end

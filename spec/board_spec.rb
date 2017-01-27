@@ -21,15 +21,19 @@ describe Board do
 
   it { is_expected.to respond_to(:claim_field).with(2).arguments }
 
-  it 'can change the taken status of the field to true' do
+  xit 'can change the taken status of the field to true' do
+    allow(field).to receive(:player_claims_field).with(player1)
+    board.claim_field(:A1, player1)
+    expect(board.chosen_field_taken?(:A1)).to eq true
+  end
+
+  it 'will not allow the same field to be taken more than once' do
     allow(field).to receive(:player_claims_field).with(player1)
     expect(field).to receive(:player_claims_field).with(player1)
     board.claim_field(:A1, player1)
   end
 
-  xit 'will not allow the same field to be taken more than once' do
-    allow(field).to receive(:player_claims_field).with(player1)
-    board.claim_field(:A1, player1)
-    expect(board.chosen_field_taken?(:A1)).to eq true
+  it 'knows when there are still fields remaining' do
+    expect(board.all_fields_taken?).to eq false
   end
 end
