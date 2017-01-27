@@ -104,5 +104,10 @@ describe Game do
       allow(board).to receive(:all_fields_taken?).and_return false
       expect(game.all_fields_taken?).to eq false
     end
+
+    it 'knows when all fields have been taken' do
+      allow(board).to receive(:all_fields_taken?).and_return true
+      expect(game.all_fields_taken?).to eq true
+    end
   end
 end
