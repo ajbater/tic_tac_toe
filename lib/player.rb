@@ -1,10 +1,9 @@
 class Player
 
-  attr_reader :name, :token
+  attr_reader :name
 
-  def initialize(name, token)
+  def initialize(name)
     @name = name
-    @token = token.to_sym
   end
 
 end

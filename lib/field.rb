@@ -1,27 +1,27 @@
 class Field
 
-  attr_reader :taken, :token
+  attr_reader :taken, :taken_by
 
   def initialize
     @taken = false
-    @token = nil
+    @taken_by = nil
   end
 
-  def player_claims_field(token)
+  def player_claims_field(player)
     taken?
-    assign_token(token)
+    assign_player(player)
   end
 
   private
 
-  attr_writer :taken, :token
+  attr_writer :taken, :taken_by
 
   def taken?
     self.taken = true
   end
 
-  def assign_token(token)
-    self.token = token
+  def assign_player(player)
+    self.taken_by = player
   end
 
 end

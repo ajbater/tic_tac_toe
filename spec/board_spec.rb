@@ -1,6 +1,7 @@
 require 'board'
 
 describe Board do
+  let(:player1) { double :player }
   let(:field) { double :field }
   let(:token) { double :token }
   subject(:board) { described_class.new(field) }
@@ -21,14 +22,14 @@ describe Board do
   it { is_expected.to respond_to(:claim_field).with(2).arguments }
 
   it 'can change the taken status of the field to true' do
-    allow(field).to receive(:player_claims_field).with(token)
-    expect(field).to receive(:player_claims_field).with(token)
-    board.claim_field(:A1, token)
+    allow(field).to receive(:player_claims_field).with(player1)
+    expect(field).to receive(:player_claims_field).with(player1)
+    board.claim_field(:A1, player1)
   end
 
   xit 'will not allow the same field to be taken more than once' do
-    allow(field).to receive(:player_claims_field).with(token)
-    board.claim_field(:A1, token)
+    allow(field).to receive(:player_claims_field).with(player1)
+    board.claim_field(:A1, player1)
     expect(board.chosen_field_taken?(:A1)).to eq true
   end
 end
