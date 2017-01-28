@@ -18,8 +18,9 @@ class Game
     raise 'You cannot begin the game until you have two players!' if !two_players?
     player = current_player
     raise 'This field has already been taken!' if self.board.chosen_field_taken?(field)
-    self.board.claim_field(field, player)
-    return return_winner if winner?
+    self.board.claim_field(field, player) unless winner? || game_over?
+    return winner if winner?
+    return game_over if game_over?
     switch_player
   end
 
@@ -27,8 +28,12 @@ class Game
     self.board.winner?
   end
 
-  def return_winner
+  def winner
     return "#{current_player.name} is the winner!"
+  end
+
+  def game_over
+    return 'Game Over - no winner!'
   end
 
   def two_players?
@@ -45,6 +50,10 @@ class Game
 
   def current_player
     self.turn
+  end
+
+  def game_over?
+    all_fields_taken? && !winner?
   end
 
   def all_fields_taken?
