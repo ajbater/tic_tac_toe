@@ -68,6 +68,7 @@ describe Game do
       allow(board).to receive(:claim_field).with(:A1, player1)
       allow(board).to receive(:claim_field).with(:A1, player2)
       allow(board).to receive(:chosen_field_taken?).with(:A1)
+      allow(board).to receive(:winner?)
     end
 
     it 'knows that player 1 goes first' do
