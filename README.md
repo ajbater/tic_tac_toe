@@ -1,9 +1,8 @@
 #Tic Tac Toe
------------
+
 A tech test to create the business logic for a game of tic-tac-toe using Ruby
 
 ##To use
------------
 * Clone this repository and open in the REPL
 * Require the neccessary files and create a new game adn players
 ```
@@ -17,10 +16,8 @@ $ game.add_player(player2)
 * Keep playing either until someone wins, or no more fields are left.
 
 ##Screenshots
------------
 ![Imgur](http://i.imgur.com/m0Eltpc.png)
 ![Imgur](http://i.imgur.com/1D7PPfb.png)
 
 ##Tests
------------
 To run the tests, ensure rspec is installed and run `rspec` in the command line.
