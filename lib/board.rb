@@ -13,10 +13,6 @@ class Board
     @winning_combinations = []
   end
 
-  def create_winning_combinations
-    self.winning_combinations = [self.grid.values_at(:A1, :A2, :A3), self.grid.values_at(:B1, :B2, :B3), self.grid.values_at(:C1, :C2, :C3), self.grid.values_at(:A1, :B1, :C1), self.grid.values_at(:A2, :B2, :C2), self.grid.values_at(:A3, :B3, :C3), self.grid.values_at(:A1, :B2, :C3), self.grid.values_at(:A3, :A2, :C1)]
-  end
-
   def winner?
     create_winning_combinations
     check_if_winning_combination_taken
@@ -38,6 +34,13 @@ class Board
     fields = self.grid.values
     taken_fields = fields.select { |field| field.taken }
     taken_fields.length == 9
+  end
+
+  private
+
+
+  def create_winning_combinations
+    self.winning_combinations = [self.grid.values_at(:A1, :A2, :A3), self.grid.values_at(:B1, :B2, :B3), self.grid.values_at(:C1, :C2, :C3), self.grid.values_at(:A1, :B1, :C1), self.grid.values_at(:A2, :B2, :C2), self.grid.values_at(:A3, :B3, :C3), self.grid.values_at(:A1, :B2, :C3), self.grid.values_at(:A3, :A2, :C1)]
   end
 
   def check_if_winning_combination_taken
