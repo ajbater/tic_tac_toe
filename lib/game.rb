@@ -14,16 +14,16 @@ class Game
     self.player1 ? self.player2 = player : self.player1 = player
   end
 
-  def two_players?
-    !self.player1.nil? && !self.player2.nil?
-  end
-
   def take_turn(field)
     raise 'You cannot begin the game until you have two players!' if !two_players?
     player = current_player
     raise 'This field has already been taken!' if self.board.chosen_field_taken?(field)
     self.board.claim_field(field, player)
     switch_player
+  end
+
+  def two_players?
+    !self.player1.nil? && !self.player2.nil?
   end
 
   def turn

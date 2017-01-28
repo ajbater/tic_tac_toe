@@ -2,14 +2,15 @@ require 'board'
 
 describe Board do
   let(:player1) { double :player }
-  let(:field) { double :field, :taken= => false }
-  let(:second_field) { double :field, :taken= => true }
+  let(:field) { double :field, :taken => false }
+  let(:second_field) { double :field, :taken => true }
   let(:token) { double :token }
   subject(:board) { described_class.new(field) }
 
   before do
     allow(field).to receive(:new).and_return field
     allow(field).to receive(:taken).and_return false
+    allow(second_field).to receive(:taken).and_return true
     allow(field).to receive(:player_claims_field).with(player1)
   end
 
@@ -40,8 +41,4 @@ describe Board do
   xit 'knows when all fields have been taken' do
     expect(board.all_fields_taken?).to eq true
   end
-
-  # it 'knows the winning combinations' do
-  #   expect(board.WINNING_COMBINATIONS).to eq [[:A1, :A2, :A3], [:B1, :B2, :B3], [:C1, :C2, :C3], [:A1, :B1, :C1],]
-  # end
 end
