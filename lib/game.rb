@@ -24,18 +24,6 @@ class Game
     switch_player
   end
 
-  def winner?
-    self.board.winner?
-  end
-
-  def winner
-    return "#{current_player.name} is the winner!"
-  end
-
-  def game_over
-    return 'Game Over - no winner!'
-  end
-
   def two_players?
     !self.player1.nil? && !self.player2.nil?
   end
@@ -52,16 +40,30 @@ class Game
     self.turn
   end
 
-  def game_over?
-    all_fields_taken? && !winner?
-  end
-
   def all_fields_taken?
     self.board.all_fields_taken?
   end
 
   def game_over_no_winner?
     all_fields_taken?
+  end
+  
+  private
+
+  def winner?
+    self.board.winner?
+  end
+
+  def winner
+    return "#{current_player.name} is the winner!"
+  end
+
+  def game_over?
+    all_fields_taken? && !winner?
+  end
+
+  def game_over
+    return 'Game Over - no winner!'
   end
 
 end
