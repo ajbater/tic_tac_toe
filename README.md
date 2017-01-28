@@ -4,7 +4,7 @@ A tech test to create the business logic for a game of tic-tac-toe using Ruby
 
 ##To use
 * Clone this repository and open in the REPL
-* Require the neccessary files and create a new game adn players
+* Require the necessary files and create a new game and players
 ```
 $ player1 = Player.new('Amanda')
 $ player2 = Player.new('Bob')
