@@ -19,7 +19,16 @@ class Game
     player = current_player
     raise 'This field has already been taken!' if self.board.chosen_field_taken?(field)
     self.board.claim_field(field, player)
+    return return_winner if winner?
     switch_player
+  end
+
+  def winner?
+    self.board.winner?
+  end
+
+  def return_winner
+    return "#{current_player.name} is the winner!"
   end
 
   def two_players?
