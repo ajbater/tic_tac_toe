@@ -6,6 +6,10 @@ A tech test to create the business logic for a game of tic-tac-toe using Ruby
 * Clone this repository and open in the REPL
 * Require the necessary files and create a new game and players
 ```
+$ require './lib/game.rb'
+$ require './lib/field.rb'
+$ require './lib/board.rb'
+$ require './lib/player.rb'
 $ player1 = Player.new('Amanda')
 $ player2 = Player.new('Bob')
 $ game = Game.new(Board.new(Field))
