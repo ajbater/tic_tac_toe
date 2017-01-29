@@ -1,3 +1,4 @@
+# Keeps track of the fields so it knows when there is a winner or if game is over
 class Board
 
   attr_reader :grid

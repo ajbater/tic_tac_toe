@@ -1,3 +1,4 @@
+# Controls the game
 class Game
 
   attr_reader :board
@@ -47,7 +48,7 @@ class Game
   def game_over_no_winner?
     all_fields_taken?
   end
-  
+
   private
 
   def winner?

@@ -1,3 +1,4 @@
+# Is either claimed by a player or not
 class Field
 
   attr_reader :taken, :taken_by
